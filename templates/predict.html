@@ -1,0 +1,173 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form action="/predict"method="post">
+
+    {{fo.hidden_tag() }}
+
+    <div>
+        {{ fo.airline.label }}              <!--the label inside it is passedinthe string format-->
+        {{ fo.airline }} 
+        
+        {% if fo.airline.errors %}
+
+            {% for er in fo.airline.errors %}
+                <div>
+                    {{ er }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+    <br>
+    <div>
+        {{ fo.date_of_journey.label }}              <!--the label inside it is passedinthe string format-->
+        {{ fo.date_of_journey }}  
+
+        {% if fo.date_of_journey.errors %}
+
+            {% for er in fo.date_of_journey.errors %}
+                <div>
+                    {{ er }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+    <br>
+    <div>
+        {{ fo.source.label }}              <!--the label inside it is passedinthe string format-->
+        {{ fo.source }}  
+
+        {% if fo.source.errors %}
+
+            {% for er in fo.source.errors %}
+                <div>
+                    {{ er }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+    <br>
+
+    <div>
+        {{ fo.destination.label }}
+        {{ fo.destination }}
+        
+        {% if fo.destination.errors %} 
+
+            {% for er in fo.destination.errors %} 
+                <div>
+                    {{ er }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+    <br>
+
+    <div>
+        {{ fo.arrival_time .label }}
+        {{ fo.arrival_time  }}
+        
+        {% if fo.arrival_time .errors %} 
+
+            {% for er in fo.arrival_time .errors %} 
+                <div>
+                    {{ er }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+    <br>
+
+    <div>
+        {{ fo.dep_time.label }}
+        {{ fo.dep_time }}
+        
+        {% if fo.dep_time.errors %} 
+
+            {% for er in fo.dep_time.errors %} 
+                <div>
+                    {{ er }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+    <br>
+
+    <div>
+        {{ fo.duration.label }}
+        {{ fo.duration }}
+        
+        {% if fo.duration.errors %} 
+
+            {% for er in fo.duration.errors %} 
+                <div>
+                    {{ er }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+    <br>
+
+    <div>
+        {{ fo.additional_info.label }}
+        {{ fo.additional_info }}
+        
+        {% if fo.additional_info.errors %} 
+
+            {% for er in fo.additional_info.errors %} 
+                <div>
+                    {{ er }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+    <br>
+
+    <div>
+        {{ fo.total_stops.label }}
+        {{ fo.total_stops }}
+        
+        {% if fo.total_stops.errors %} 
+
+            {% for er in fo.total_stops.errors %} 
+                <div>
+                    {{ er }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+    <br>
+
+    
+    <div>
+        {{ fo.submit }}
+    </div>
+    <br>
+    
+    <div>
+        <!--{{ output }} -->
+        {% if output %}
+        <h3 style="color:green;">{{ output }}</h3>
+        {% endif %}
+    </div>
+    <br>
+    <div>
+        <p>Redirect to Home !  <a href = " {{ url_for('h') }}">Home</a></p>
+
+    </div>
+    <br>
+    
+</form>
+
+{% endblock %}
+
